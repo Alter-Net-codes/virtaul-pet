@@ -40,7 +40,7 @@ while True:
                 print(" ")
                 status = "satisfied"
             elif numberpicked > number:
-                print("Not quite! Still good!")
+                print("Not quite! Still good! the right number was:", number)
                 print("Nice! You throw the ball about 20 feet")
                 print("Nice throw!")
                 print(" ")
@@ -78,4 +78,3 @@ while True:
 
     else:
         print("That is not a valid action!")
-
