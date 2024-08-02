@@ -55,20 +55,28 @@ while True:
             print("Please enter a valid number.")
             
     elif task == "feed":
+        tired += 2
         print("Good idea to feed him; he was at", hunger, "hunger points!")
         print("You feed your dog.")
         hunger = 0
+        status = "happy"
         print("Your dog is now cured of its hunger.")
+        print(" ")
 
     elif task == "rest":
+        hunger += 2
         print("Good idea; your dog was at", tired, "tired points!")
         print("You put your dog to sleep.")
         tired = 0
+        status = "happy"
         print("Your dog is now cured of its tiredness.")
+        print(" ")
 
     elif task == "buy toys":
+        tired += 2
         print("You buy a few toys for your dog.")
         status = "playful"
+        print(" ")
 
     elif task == "exit":
         print("Goodbye!")
