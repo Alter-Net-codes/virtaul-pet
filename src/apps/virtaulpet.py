@@ -100,7 +100,7 @@ def main():
                 except Exception as e:
                     print(f"An unexpected error occurred: {e}")
             else:
-                print("Kernel script not found!")
+                print("yay sucsess!")
 
             break
 
