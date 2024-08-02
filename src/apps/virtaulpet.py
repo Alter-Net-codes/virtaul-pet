@@ -3,7 +3,6 @@ import os
 import sys
 import random
 
-
 def main():
     status = "happy"
     hunger = 0
@@ -33,79 +32,80 @@ def main():
             hunger += 2
             tired += 2
             print("You go to the park to play with your dog!")
-        status = "excited"
-        print("Your dog is", status, "to be at the park")
-        number = random.randint(1, 100)
-        try:
-            numberpicked = int(input("Pick a number from 1-100: "))
-            if numberpicked < number:
-                print("Oh, not quite! The right number was:", number)
-                print("You throw the ball about 20 feet!")
-                print("Nice throw!")
-                print(" ")
-                status = "satisfied"
-            elif numberpicked > number:
-                print("Not quite! Still good! the right number was:", number)
-                print("Nice! You throw the ball about 20 feet")
-                print("Nice throw!")
-                print(" ")
-                status = "satisfied"
-            else:
-                print("YES! YOU GOT IT!!!")
-                print("You throw the ball 50 feet!")
-                print("ELEGANT!!!!!!!!")
-                print("")
-                status = "VERY happy"
-        except ValueError:
-            print("Please enter a valid number.")
+            status = "excited"
+            print("Your dog is", status, "to be at the park")
+            number = random.randint(1, 100)
+            try:
+                numberpicked = int(input("Pick a number from 1-100: "))
+                if numberpicked < number:
+                    print("Oh, not quite! The right number was:", number)
+                    print("You throw the ball about 20 feet!")
+                    print("Nice throw!")
+                    print(" ")
+                    status = "satisfied"
+                elif numberpicked > number:
+                    print("Not quite! Still good! The right number was:", number)
+                    print("Nice! You throw the ball about 20 feet")
+                    print("Nice throw!")
+                    print(" ")
+                    status = "satisfied"
+                else:
+                    print("YES! YOU GOT IT!!!")
+                    print("You throw the ball 50 feet!")
+                    print("ELEGANT!!!!!!!!")
+                    print("")
+                    status = "VERY happy"
+            except ValueError:
+                print("Please enter a valid number.")
             
-    elif task == "feed":
-        tired += 2
-        print("Good idea to feed him; he was at", hunger, "hunger points!")
-        print("You feed your dog.")
-        hunger = 0
-        status = "happy"
-        print("Your dog is now cured of its hunger.")
-        print(" ")
+        elif task == "feed":
+            tired += 2
+            print("Good idea to feed him; he was at", hunger, "hunger points!")
+            print("You feed your dog.")
+            hunger = 0
+            status = "happy"
+            print("Your dog is now cured of its hunger.")
+            print(" ")
 
-    elif task == "rest":
-        hunger += 2
-        print("Good idea; your dog was at", tired, "tired points!")
-        print("You put your dog to sleep.")
-        tired = 0
-        status = "happy"
-        print("Your dog is now cured of its tiredness.")
-        print(" ")
+        elif task == "rest":
+            hunger += 2
+            print("Good idea; your dog was at", tired, "tired points!")
+            print("You put your dog to sleep.")
+            tired = 0
+            status = "happy"
+            print("Your dog is now cured of its tiredness.")
+            print(" ")
 
-    elif task == "buy toys":
-        tired += 2
-        print("You buy a few toys for your dog.")
-        status = "playful"
-        print(" ")
+        elif task == "buy toys":
+            tired += 2
+            print("You buy a few toys for your dog.")
+            status = "playful"
+            print(" ")
 
-    elif task == "exit":
-        print("Goodbye!")
-        print("See you later.")
-        print("Saving and quitting...")
-        break
+        elif task == "exit":
+            print("Goodbye!")
+            print("See you later.")
+            print("Saving and quitting...")
 
-    else:
-        print("That is not a valid action!")
-    
-    # Path to the kernel script in the KERNEL folder
-    kernel_script = os.path.join(os.getcwd(), 'KERNEL', 'kernel.py')
-    
-    # Check if the kernel script exists before trying to run it
-    if os.path.isfile(kernel_script):
-        try:
-            # Run the kernel script as a subprocess
-            subprocess.run([sys.executable, kernel_script], check=True)
-        except subprocess.CalledProcessError as e:
-            print(f"Error executing the kernel script: {e}")
-        except Exception as e:
-            print(f"An unexpected error occurred: {e}")
-    else:
-        print("yay! sucsess!")
+            # Path to the kernel script in the KERNEL folder
+            kernel_script = os.path.join(os.getcwd(), 'KERNEL', 'kernel.py')
+            
+            # Check if the kernel script exists before trying to run it
+            if os.path.isfile(kernel_script):
+                try:
+                    # Run the kernel script as a subprocess
+                    subprocess.run([sys.executable, kernel_script], check=True)
+                except subprocess.CalledProcessError as e:
+                    print(f"Error executing the kernel script: {e}")
+                except Exception as e:
+                    print(f"An unexpected error occurred: {e}")
+            else:
+                print("Kernel script not found!")
+
+            break
+
+        else:
+            print("That is not a valid action!")
 
 if __name__ == "__main__":
     main()
